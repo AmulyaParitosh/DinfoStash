@@ -4,8 +4,6 @@ from pathlib import Path
 
 from src import ResumeTemplate, create_resume
 
-SUPPORTED_TEMPLATES: list[str] = [template.value for template in ResumeTemplate]
-
 
 def list_templates() -> None:
     print("The available resume formats are:")
