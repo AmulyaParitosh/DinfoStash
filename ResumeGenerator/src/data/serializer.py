@@ -84,9 +84,9 @@ class ResumeData(BaseModel):
 
 def load_data(path: Path) -> ResumeData:
     with path.open("r", encoding="utf-8") as json_file:
-        json_data: dict = json.load(json_file)
-        resume_data_obj = ResumeData(**json_data)
-        return resume_data_obj
+        json_str = json_file.read().replace("#", r"\\#")
+        json_data: dict = json.loads(json_str)
+        return ResumeData(**json_data)
 
 
 if __name__ == "__main__":
