@@ -1,4 +1,5 @@
 # self defined
+.pdm-python
 .vscode/
 .dev_utils/
 ResumeGenerator/example/personal_data*
