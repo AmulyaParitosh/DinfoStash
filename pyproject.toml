@@ -1,7 +1,7 @@
 [project]
 name = "DinfoStash"
 version = "0.1.0"
-description = "A Developer Information Store that can store and manage devloper's portfolio data and also generate resumes."
+description = "A Developer Information Manager that can store and manage devloper's portfolio data and also generate resumes."
 authors = [
     {name = "Amulya Paritosh", email = "amulya1171@gmail.com"},
 ]
@@ -14,7 +14,7 @@ dependencies = [
     "pydantic[email]>=2.9.2",
     "pydantic-extra-types>=2.9.0",
     "phonenumbers>=8.13.47",
-    "fastapi>=0.115.2",
+    "fastapi[standard]>=0.115.2",
     "uvicorn[standard]>=0.32.0",
     "firebase-admin>=6.5.0",
     "jinja2>=3.1.4",

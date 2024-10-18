@@ -15,3 +15,5 @@
 [ ] TODO: the cli should be able to take name of the output file
 
 [ ] TODO: handling of subcommands function are not n=being handled properly (add the handler function to the definition not in if-else check with string)
+
+[ ] TODO: maybe the sub-parser and subcommand structure is not right. check it
