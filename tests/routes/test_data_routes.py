@@ -3,8 +3,8 @@ from pathlib import Path
 import pytest
 from fastapi.testclient import TestClient
 
-from src.resumegenerator.main import app
-from src.resumegenerator.data.models import ResumeData
+from src.dinfostash.main import app
+from src.dinfostash.data.models import ResumeData
 
 client = TestClient(app)
 

@@ -82,7 +82,7 @@ def parse_args() -> Namespace:
     return parser.parse_args()
 
 
-def main() -> None:
+def app() -> None:
     args: Namespace = parse_args()
     if args.subcommand == "templates":
         list_templates()
@@ -93,4 +93,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    app()

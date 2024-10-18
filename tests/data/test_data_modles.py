@@ -5,7 +5,7 @@ from pathlib import Path
 import pytest
 from faker import Faker
 
-from src.resumegenerator.data.models import (
+from src.dinfostash.data.models import (
     Achievement,
     Address,
     ContactInfo,

@@ -2,7 +2,7 @@ from pathlib import Path
 
 import pytest
 
-from src.resumegenerator.resume import ResumeTemplate, create_resume_from_file
+from src.dinfostash.resume import ResumeTemplate, create_resume_from_file
 
 
 def test_create_resume_single_column_photo():

@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from ..src.resumegenerator.resume import create_resume_from_file
+from ..src.dinfostash.resume import create_resume_from_file
 
 
 if __name__ == "__main__":

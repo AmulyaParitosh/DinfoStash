@@ -15,6 +15,6 @@ app.include_router(user_router)
 
 app.mount(
     "/static",
-    StaticFiles(directory="src/resumegenerator/static"),
+    StaticFiles(directory="src/dinfostash/static"),
     name="static",
 )

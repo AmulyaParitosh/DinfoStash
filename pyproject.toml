@@ -1,7 +1,7 @@
 [project]
-name = "ResumeGenerator"
+name = "DinfoStash"
 version = "0.1.0"
-description = "Default template for PDM package"
+description = "A Developer Information Store that can store and manage devloper's portfolio data and also generate resumes."
 authors = [
     {name = "Amulya Paritosh", email = "amulya1171@gmail.com"},
 ]
@@ -32,4 +32,11 @@ test = [
 ]
 
 [tool.pdm]
-distribution = false
+distribution = true
+
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project.scripts]
+dinfostash = "dinfostash.cli:app"

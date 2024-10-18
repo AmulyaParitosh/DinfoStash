@@ -3,13 +3,13 @@ firebase.json
 .pdm-python
 .vscode/
 .dev_utils/
-ResumeGenerator/example/personal_data*
+example/personal_data*
 *.aux
 *.fdb_latexmk
 *.fls
 *.out
 resumegenerator-6a627-firebase-adminsdk*
-ResumeGenerator.code-workspace
+*.code-workspace
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
