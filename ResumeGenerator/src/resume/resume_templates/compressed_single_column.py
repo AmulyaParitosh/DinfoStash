@@ -372,14 +372,14 @@ def _create_document(data: ResumeData):
     )
     doc = add_header_section_with_photo(doc, data)
 
+    doc.append(NoEscape("\n\n% -------------------- EDUCATION --------------------"))
+    doc = add_education_section(doc, data.educations)
+
     doc.append(NoEscape("\n\n% -------------------- EXPERIENCE --------------------"))
     doc = add_experience_section(doc, data.experience)
 
     doc.append(NoEscape("\n\n% -------------------- PROJECTS --------------------"))
     doc = add_projects_section(doc, data.projects)
-
-    doc.append(NoEscape("\n\n% -------------------- EDUCATION --------------------"))
-    doc = add_education_section(doc, data.educations)
 
     doc.append(NoEscape("\n\n% -------------------- SKILLS --------------------"))
     doc = add_skills_section(doc, data.skills)

@@ -195,17 +195,17 @@ class SingleColumnCompressed(ResumeTemplate):
         doc = compressed_single_column.add_header_section_without_photo(doc, data)
 
         doc.append(
+            NoEscape("\n\n% -------------------- EDUCATION --------------------")
+        )
+        doc = compressed_single_column.add_education_section(doc, data.educations)
+
+        doc.append(
             NoEscape("\n\n% -------------------- EXPERIENCE --------------------")
         )
         doc = compressed_single_column.add_experience_section(doc, data.experience)
 
         doc.append(NoEscape("\n\n% -------------------- PROJECTS --------------------"))
         doc = compressed_single_column.add_projects_section(doc, data.projects)
-
-        doc.append(
-            NoEscape("\n\n% -------------------- EDUCATION --------------------")
-        )
-        doc = compressed_single_column.add_education_section(doc, data.educations)
 
         doc.append(NoEscape("\n\n% -------------------- SKILLS --------------------"))
         doc = compressed_single_column.add_skills_section(doc, data.skills)
