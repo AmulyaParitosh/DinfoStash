@@ -21,6 +21,7 @@ dependencies = [
     "google-cloud-datastore>=2.20.1",
     "python-multipart>=0.0.12",
     "pydantic-settings>=2.6.0",
+    "python-dotenv>=1.0.1",
 ]
 
 [tool.pdm.dev-dependencies]

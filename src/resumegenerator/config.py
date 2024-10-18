@@ -1,5 +1,5 @@
 from pydantic_settings import BaseSettings, SettingsConfigDict
-
+from dotenv import load_dotenv
 
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
@@ -17,5 +17,8 @@ class Settings(BaseSettings):
     measurementId: str
     serviceAccountCertificatePath: str
 
+load_dotenv(
+    override=True, verbose=True
+)  # Load the .env file in the root directory of the project
 
 SETTINGS = Settings()  # type: ignore
