@@ -5,7 +5,7 @@ from pathlib import Path
 import pytest
 from faker import Faker
 
-from ResumeGenerator.src.data import (
+from src.resumegenerator.data.models import (
     Achievement,
     Address,
     ContactInfo,
@@ -47,9 +47,10 @@ def fake_address():
 def fake_personal_info():
     return PersonalInfo(
         name=fake.name(),
-        photo="ResumeGenerator/example/inputs/john_doe.jpeg",
+        photo="example/inputs/john_doe.jpeg",
         address=fake_address(),
         contact_infos=[fake_contact_info() for _ in range(random.randint(1, 3))],
+        short_infos=[],
     )
 
 
@@ -89,6 +90,7 @@ def fake_experience():
         link=fake.url(),
         descriptions=[fake.sentence() for _ in range(random.randint(1, 3))],
         technologies=[fake.word() for _ in range(random.randint(1, 3))],
+        location=None,
     )
 
 
@@ -99,6 +101,9 @@ def fake_project():
         link=fake.url(),
         technologies=[fake.word() for _ in range(random.randint(1, 3))],
         description=fake.sentence(),
+        type=None,
+        organization=None,
+        time=None,
     )
 
 
@@ -108,6 +113,7 @@ def fake_achievement():
         type=fake.word(),
         title=fake.sentence(),
         data=fake.sentence(),
+        link=None,
     )
 
 
@@ -176,6 +182,7 @@ def test_invalid_photo_path():
             photo=fake.file_path(),
             address=fake_address(),
             contact_infos=[fake_contact_info() for _ in range(random.randint(1, 3))],
+            short_infos=[],
         )
 
 

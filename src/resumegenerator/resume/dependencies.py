@@ -21,11 +21,11 @@ async def template_preview(
 
     files = [
         f
-        for f in os.listdir("ResumeGenerator/example/outputs")
+        for f in os.listdir("example/outputs")
         if f.endswith(output_type.value) and template.value in f
     ]
 
-    first_file_path = f"ResumeGenerator/example/outputs/{files[0]}"
+    first_file_path = f"example/outputs/{files[0]}"
 
     mime_type, _ = mimetypes.guess_type(first_file_path)
     media_type = mime_type or "application/octet-stream"

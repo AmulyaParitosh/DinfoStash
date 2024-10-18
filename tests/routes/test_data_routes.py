@@ -3,14 +3,14 @@ from pathlib import Path
 import pytest
 from fastapi.testclient import TestClient
 
-from ResumeGenerator.api import app
-from ResumeGenerator.src.data import ResumeData
+from src.resumegenerator.main import app
+from src.resumegenerator.data.models import ResumeData
 
 client = TestClient(app)
 
 
 expected_data = ResumeData.read_from_file(
-    Path("ResumeGenerator/example/inputs/example_resume_data.json")
+    Path("example/inputs/example_resume_data.json")
 ).model_dump()
 
 

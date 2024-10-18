@@ -223,7 +223,7 @@ def create_document_with_nophoto(data: ResumeData) -> Document:
     latex = Document(documentclass="article", document_options=["letterpaper", "11pt"])
 
     with open(
-        "ResumeGenerator/src/resume/resume_templates/single_column_nophoto_preamble.tex",
+        "src/resumegenerator/resume/resume_templates/single_column_nophoto_preamble.tex",
         "r",
         encoding="utf-8",
     ) as file:
@@ -244,7 +244,7 @@ def create_document_with_photo(data: ResumeData) -> Document:
     latex = Document(documentclass="article", document_options=["letterpaper", "11pt"])
 
     with open(
-        "ResumeGenerator/src/resume/resume_templates/single_column_photo_preamble.tex",
+        "src/resumegenerator/resume/resume_templates/single_column_photo_preamble.tex",
         "r",
         encoding="utf-8",
     ) as file:
