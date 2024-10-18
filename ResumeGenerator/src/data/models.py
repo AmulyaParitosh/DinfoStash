@@ -231,25 +231,22 @@ class Project(BaseModel):
     link: Optional[AnyUrlStr] = Field(
         None, title="Project Link", description="Link to the project"
     )
-    type: str = Field(
-        ...,
+    type: Optional[str] = Field(
+        None,
         title="Project Type",
         description="Type of project",
-        min_length=1,
         max_length=50,
     )
-    organization: str = Field(
-        ...,
+    organization: Optional[str] = Field(
+        None,
         title="Organization",
         description="Organization under which the project was done",
-        min_length=1,
         max_length=100,
     )
-    time: str = Field(
-        ...,
+    time: Optional[str] = Field(
+        None,
         title="Time Period",
         description="Time period of the project",
-        min_length=1,
         max_length=50,
     )
     technologies: List[str] = Field(
@@ -334,3 +331,6 @@ class ResumeData(BaseModel):
         for char in LATEX_ESCAPE_CHARS:
             json_str = json_str.replace(char, rf"\\{char}")
         return ResumeData(**json.loads(json_str))
+
+with open("json_schema.json", "w") as f:
+    json.dump(ResumeData.model_json_schema(), f, indent=2)
