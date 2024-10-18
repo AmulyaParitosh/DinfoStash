@@ -1,4 +1,5 @@
 # self defined
+firebase.json
 .pdm-python
 .vscode/
 .dev_utils/
