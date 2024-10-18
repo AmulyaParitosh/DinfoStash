@@ -332,5 +332,5 @@ class ResumeData(BaseModel):
             json_str = json_str.replace(char, rf"\\{char}")
         return ResumeData(**json.loads(json_str))
 
-with open("json_schema.json", "w") as f:
-    json.dump(ResumeData.model_json_schema(), f, indent=2)
+# with open("json_schema.json", "w") as f:
+#     json.dump(ResumeData.model_json_schema(), f, indent=2)
