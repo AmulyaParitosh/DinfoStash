@@ -25,7 +25,7 @@ templates = Jinja2Templates(directory=str(Path(BASE_DIR, "templates")))
 
 
 @router.get("/login", response_class=HTMLResponse)
-async def read_item(request: Request):
+async def login_page(request: Request):
     id_token = request.cookies.get("token")
     error_message = None
     claims = None

@@ -1,7 +1,7 @@
 [project]
 name = "DinfoStash"
 version = "0.1.0"
-description = "A Developer Information Manager that can store and manage devloper's portfolio data and also generate resumes."
+description = "A Developer Information Manager that can store and manage developer's portfolio data and also generate resumes."
 authors = [
     {name = "Amulya Paritosh", email = "amulya1171@gmail.com"},
 ]
