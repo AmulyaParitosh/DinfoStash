@@ -45,7 +45,8 @@ class ResumeTemplate:
         return template.metadata
 
     @classmethod
-    def create_document(cls, data: ResumeData) -> Document: ...
+    def create_document(cls, data: ResumeData) -> Document:
+        ...
 
 
 class SingleColumnNoPhoto(ResumeTemplate):

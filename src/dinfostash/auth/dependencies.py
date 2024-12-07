@@ -34,10 +34,11 @@ async def get_current_user(
     # TODO: get user from firebase_admin.auth.get_user so change var name to user in all the dependencies
     return auth.get_user(claims.user_id)
 
+
 async def get_admin(
     user: Annotated[UserRecord, Depends(get_current_user)]
-)-> UserRecord:
-    if not user.custom_claims.get('admin'):
+) -> UserRecord:
+    if not user.custom_claims.get("admin"):
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
             detail="User is not an admin",

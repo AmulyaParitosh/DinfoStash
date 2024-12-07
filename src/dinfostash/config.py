@@ -1,5 +1,6 @@
-from pydantic_settings import BaseSettings, SettingsConfigDict
 from dotenv import load_dotenv
+from pydantic_settings import BaseSettings, SettingsConfigDict
+
 
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
@@ -16,6 +17,7 @@ class Settings(BaseSettings):
     appId: str
     measurementId: str
     serviceAccountCertificatePath: str
+
 
 load_dotenv(
     override=True, verbose=True

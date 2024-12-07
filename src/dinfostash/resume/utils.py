@@ -1,5 +1,7 @@
 import requests
+
 from ..data.constants import ImagePath
+
 
 def download_img(image_url: str, image_name: str):
     img_data = requests.get(image_url).content

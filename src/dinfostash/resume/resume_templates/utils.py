@@ -19,7 +19,8 @@ class _CustomMeta(type):
 _LatexMeta = type(CommandBase)
 
 
-class _NewMeta(_LatexMeta, _CustomMeta): ...
+class _NewMeta(_LatexMeta, _CustomMeta):
+    ...
 
 
 class CustomCommand(CommandBase, metaclass=_NewMeta):
@@ -103,11 +104,12 @@ class CustomContextCommand(metaclass=CustomContextCommandMeta):
         cls.exit_command.declaration(doc)
         return doc
 
+
 def bold_percentage(text: str) -> str:
     """
     This function is used to make the percentage in the text bold.
     """
-    pattern = r'\b\d+(\.\d+)?\\%'
+    pattern = r"\b\d+(\.\d+)?\\%"
 
     return re.sub(
         pattern,

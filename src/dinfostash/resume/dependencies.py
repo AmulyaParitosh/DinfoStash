@@ -13,6 +13,7 @@ from .constants import FileResponseData, ResumeOutputType, ResumeTemplateEnum
 from .services import create_temp_resume_from_data
 from .utils import check_image_url
 
+
 async def template_preview(
     template: ResumeTemplateEnum,
     output_type: ResumeOutputType,

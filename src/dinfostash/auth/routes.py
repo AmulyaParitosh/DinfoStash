@@ -2,11 +2,11 @@ from pathlib import Path
 from typing import Annotated
 
 from fastapi import APIRouter, Depends, Request
+from fastapi.logger import logger
 from fastapi.responses import HTMLResponse
 from fastapi.security import OAuth2PasswordRequestForm
 from fastapi.templating import Jinja2Templates
 from firebase_admin import auth
-from fastapi.logger import logger
 
 from ..firebase import firebase_app
 from .services import sign_in_with_email_and_password
@@ -20,6 +20,7 @@ async def login(form_data: Annotated[OAuth2PasswordRequestForm, Depends()]):
         form_data.username, form_data.password
     )
     return {"access_token": sign_in_response.idToken, "token_type": "bearer"}
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 templates = Jinja2Templates(directory=str(Path(BASE_DIR, "templates")))

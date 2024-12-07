@@ -1,20 +1,16 @@
 from typing import Literal, Union
 
-from pylatex import Command, Document, NoEscape, Package, Section, VerticalSpace
+from pylatex import (Command, Document, NoEscape, Package, Section,
+                     VerticalSpace)
 from pylatex.base_classes import LatexObject
 
 from ...data.constants import AnyUrlStr
-from ...data.models import (
-    Achievement,
-    Education,
-    Experience,
-    Project,
-    ResumeData,
-    Skill,
-)
+from ...data.models import (Achievement, Education, Experience, Project,
+                            ResumeData, Skill)
 from .utils import CustomCommand, CustomContextCommand, bold_percentage
 
 CommandArg = Union[str, LatexObject, AnyUrlStr, int, None]
+
 
 class ItemView(CustomCommand):
     args = 1
@@ -91,7 +87,6 @@ class VerticalViewItem(CustomCommand):
 
 
 class HeaderSection(CustomContextCommand):
-
     class Start(CustomCommand):
         body = r"\vspace*{-3.5cm}\begin{itemize}[leftmargin=0.15in, label={}]\setlength\itemsep{0.1em}"
 

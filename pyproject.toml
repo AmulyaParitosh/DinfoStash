@@ -38,6 +38,8 @@ dev = [
     "pytest>=8.3.3",
     "httpx>=0.27.2",
     "faker>=30.6.0",
+    "pre-commit>=4.0.1",
+    "black>=24.10.0",
 ]
 
 [project.scripts]

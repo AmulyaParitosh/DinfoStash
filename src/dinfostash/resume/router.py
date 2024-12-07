@@ -5,11 +5,8 @@ from fastapi.responses import FileResponse
 
 from ..resume.resume_templates import ResumeTemplate
 from .constants import FileResponseData, ResumeTemplateEnum
-from .dependencies import (
-    create_resume_from_data,
-    create_resume_from_saved_data,
-    template_preview,
-)
+from .dependencies import (create_resume_from_data,
+                           create_resume_from_saved_data, template_preview)
 from .models import ResumeTemplateMetadata
 
 router = APIRouter(

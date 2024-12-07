@@ -11,6 +11,7 @@ from .constants import AnyUrlStr, ImagePath
 
 # TODO: the base model uses = Filed(...) to define required fields, ise annotated with its datatype as it is creating issue with type hinting
 
+
 class ContactInfo(BaseModel):
     type: str = Field(
         ...,
@@ -288,7 +289,9 @@ class Achievement(BaseModel):
         min_length=1,
     )
     link: Optional[AnyUrlStr] = Field(
-        None, title="Achievement Link", description="Link to the Achievement for validation"
+        None,
+        title="Achievement Link",
+        description="Link to the Achievement for validation",
     )
 
 
@@ -331,6 +334,7 @@ class ResumeData(BaseModel):
         for char in LATEX_ESCAPE_CHARS:
             json_str = json_str.replace(char, rf"\\{char}")
         return ResumeData(**json.loads(json_str))
+
 
 # with open("json_schema.json", "w") as f:
 #     json.dump(ResumeData.model_json_schema(), f, indent=2)

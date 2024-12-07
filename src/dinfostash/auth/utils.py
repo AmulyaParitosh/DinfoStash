@@ -1,5 +1,6 @@
-from requests import HTTPError
 from fastapi import HTTPException, status
+from requests import HTTPError
+
 
 def raise_detailed_error(request_object):
     try:

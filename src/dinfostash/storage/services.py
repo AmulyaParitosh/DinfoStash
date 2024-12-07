@@ -4,7 +4,9 @@ from typing import BinaryIO
 from .constants import mime, storage_bucket
 
 
-def store_file(user_id: str, file_name: str, file: bytes, content_type: str = None) -> str:
+def store_file(
+    user_id: str, file_name: str, file: bytes, content_type: str = None
+) -> str:
     blob = storage_bucket.blob(f"{user_id}/{file_name}")
     if not content_type:
         content_type = mime.guess_type(file_name)[0]
