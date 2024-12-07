@@ -12,7 +12,7 @@ from ..data.utils import file_exists
 from ..user.models import User
 from .constants import FileResponseData, ResumeOutputType, ResumeTemplateEnum
 from .services import create_temp_resume_from_data
-
+from .utils import check_image_url
 
 async def template_preview(
     template: ResumeTemplateEnum,
@@ -41,8 +41,14 @@ async def create_resume_from_saved_data(
     template: ResumeTemplateEnum,
     output_type: ResumeOutputType,
     resume_data: Annotated[ResumeData, Depends(get_resume)],
+    user: Annotated[User, Depends(get_current_user)],
     background_tasks: BackgroundTasks,
 ) -> FileResponseData:
+
+    if resume_data.personal_info.photo and not check_image_url(
+        resume_data.personal_info.photo
+    ):
+        resume_data.personal_info.photo = user.photo_url
 
     temp_resume = await create_temp_resume_from_data(resume_data, template, output_type)
 

@@ -6,6 +6,7 @@ from fastapi.responses import HTMLResponse
 from fastapi.security import OAuth2PasswordRequestForm
 from fastapi.templating import Jinja2Templates
 from firebase_admin import auth
+from fastapi.logger import logger
 
 from ..firebase import firebase_app
 from .services import sign_in_with_email_and_password
@@ -32,6 +33,8 @@ async def login_page(request: Request):
     if id_token:
         try:
             claims = auth.verify_id_token(id_token, firebase_app)
+            logger.debug("claims: %s", claims)
+
         except Exception as exc:
             error_message = str(exc)
 

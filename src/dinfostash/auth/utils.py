@@ -1,5 +1,5 @@
 from requests import HTTPError
-
+from fastapi import HTTPException, status
 
 def raise_detailed_error(request_object):
     try:
@@ -7,4 +7,6 @@ def raise_detailed_error(request_object):
     except HTTPError as e:
         # raise detailed error message
         # TODO: Check if we get a { "error" : "Permission denied." } and handle automatically
-        raise HTTPError(e, request_object.text) from e
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST, detail=str(e)
+        ) from e
