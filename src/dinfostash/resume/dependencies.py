@@ -8,7 +8,6 @@ from fastapi import BackgroundTasks, Depends
 from ..auth.dependencies import get_current_user
 from ..data.dependencies import get_resume
 from ..data.models import ResumeData
-from ..data.utils import file_exists
 from ..user.models import User
 from .constants import FileResponseData, ResumeOutputType, ResumeTemplateEnum
 from .services import create_temp_resume_from_data
