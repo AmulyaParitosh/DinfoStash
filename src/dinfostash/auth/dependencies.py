@@ -1,4 +1,4 @@
-from typing import Annotated
+from typing import Annotated, Optional
 
 from fastapi import Depends, HTTPException, status
 from firebase_admin import auth
@@ -14,12 +14,19 @@ async def authenticate_with_token(
 ) -> AuthClaims:
 
     if not id_token:
-        raise ValueError("No token provided")
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Token not Found",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
 
     try:
         return AuthClaims(**auth.verify_id_token(id_token, firebase_app))
     except ValueError as exc:
-        raise ValueError("Unauthorized") from exc
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Unauthorized",
+        ) from exc
 
 
 async def get_current_user(
@@ -44,3 +51,15 @@ async def get_admin(
             detail="User is not an admin",
         )
     return user
+
+
+async def get_optional_current_user(
+    id_token: Annotated[Optional[str], Depends(oauth2_scheme)] = None
+) -> Optional[UserRecord]:
+    if not id_token:
+        return None  # User is not authenticated
+    try:
+        claims = AuthClaims(**auth.verify_id_token(id_token, firebase_app))
+        return auth.get_user(claims.user_id)
+    except Exception:
+        return None

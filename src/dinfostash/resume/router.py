@@ -4,9 +4,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from fastapi.responses import FileResponse
 
 from dinfostash.resume.constants import FileResponseData, ResumeTemplateEnum
-from dinfostash.resume.dependencies import (create_resume_from_data,
-                                            create_resume_from_saved_data,
-                                            template_preview)
+from dinfostash.resume.dependencies import create_resume, template_preview
 from dinfostash.resume.models import ResumeTemplateMetadata
 from dinfostash.resume.resume_templates import ResumeTemplate
 
@@ -43,20 +41,9 @@ async def preview_template(
     )
 
 
-@router.get("")
-async def generate_resume_from_user_resume(
-    resume_file: Annotated[FileResponseData, Depends(create_resume_from_saved_data)]
-) -> FileResponse:
-    return FileResponse(
-        path=resume_file.path,
-        media_type=resume_file.media_type,
-        headers=resume_file.headers,
-    )
-
-
 @router.post("")
 async def generate_resume_from_post_data(
-    resume_file: Annotated[FileResponseData, Depends(create_resume_from_data)],
+    resume_file: Annotated[FileResponseData, Depends(create_resume)]
 ) -> FileResponse:
     return FileResponse(
         path=resume_file.path,
