@@ -1,9 +1,9 @@
 import mimetypes
 import os
 import shutil
-from typing import Optional
+from typing import Annotated, Optional
 
-from fastapi import BackgroundTasks, Depends, HTTPException, status
+from fastapi import BackgroundTasks, Depends, HTTPException, status, Body
 
 from dinfostash.auth.dependencies import get_optional_current_user
 from dinfostash.data.dependencies import get_resume
@@ -14,8 +14,13 @@ from dinfostash.resume.constants import (
     ResumeTemplateEnum,
 )
 from dinfostash.resume.utils import check_image_url
-from dinfostash.resume.services import create_temp_resume_from_data
+from dinfostash.resume.constants import TempResume
+from dinfostash.resume.services import (
+    prepare_file_response,
+    create_temp_resume_from_data,
+)
 from dinfostash.user.models import User
+from dinfostash.agent.services import tailor_resume
 
 
 async def template_preview(
@@ -30,25 +35,14 @@ async def template_preview(
     ]
 
     first_file_path = f"example/outputs/{files[0]}"
-
-    mime_type, _ = mimetypes.guess_type(first_file_path)
-    media_type = mime_type or "application/octet-stream"
-    headers = {"Content-Disposition": f'inline; filename="{first_file_path}"'}
-    # setting Content-Disposition as inline ensures it is displayed in browser
-
-    return FileResponseData(
-        path=first_file_path, media_type=media_type, headers=headers
-    )
+    return prepare_file_response(first_file_path, "inline")
 
 
-async def create_resume(
-    template: ResumeTemplateEnum,  # type: ignore
-    output_type: ResumeOutputType,
-    background_tasks: BackgroundTasks,
+async def resume_data(
     user: Optional[User] = Depends(get_optional_current_user),
     resume_name: Optional[str] = None,
     resume_data: Optional[ResumeData] = None,
-) -> FileResponseData:
+) -> ResumeData:
     if user:
         if not resume_data:
             if not resume_name:
@@ -68,16 +62,37 @@ async def create_resume(
             raise HTTPException(
                 status_code=status.HTTP_404_NOT_FOUND, detail="Resume data not found"
             )
+    return resume_data
 
-    temp_resume = await create_temp_resume_from_data(resume_data, template, output_type)
 
-    mime_type, _ = mimetypes.guess_type(temp_resume.path)
-    media_type = mime_type or "application/octet-stream"
-    headers = {"Content-Disposition": f'attachment; filename="{temp_resume.path}"'}
-    # setting Content-Disposition as attachment ensures it is downloaded as a file
-
-    background_tasks.add_task(shutil.rmtree, temp_resume.temp_dir)
-
-    return FileResponseData(
-        path=temp_resume.path, media_type=media_type, headers=headers
+async def create_resume(
+    template: ResumeTemplateEnum,  # type: ignore
+    output_type: ResumeOutputType,
+    background_tasks: BackgroundTasks,
+    resume_data: Annotated[ResumeData, Depends(resume_data)],
+) -> FileResponseData:
+    temp_resume: TempResume = await create_temp_resume_from_data(
+        resume_data, template, output_type
     )
+    background_tasks.add_task(shutil.rmtree, temp_resume.temp_dir)
+    return prepare_file_response(temp_resume.path, "attachment")
+
+
+async def tailored_resume_data(
+    job_description: Annotated[str, Body()],
+    resume_data: Annotated[ResumeData, Depends(resume_data)],
+) -> ResumeData:
+    return await tailor_resume(resume_data, job_description)
+
+
+async def create_tailored_resume(
+    template: ResumeTemplateEnum,  # type: ignore
+    output_type: ResumeOutputType,
+    background_tasks: BackgroundTasks,
+    resume_data: Annotated[ResumeData, Depends(tailored_resume_data)],
+) -> FileResponseData:
+    temp_resume: TempResume = await create_temp_resume_from_data(
+        resume_data, template, output_type
+    )
+    background_tasks.add_task(shutil.rmtree, temp_resume.temp_dir)
+    return prepare_file_response(temp_resume.path, "attachment")

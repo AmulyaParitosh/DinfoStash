@@ -1,8 +1,15 @@
 import tempfile
 from pathlib import Path
-
+import mimetypes
+from typing import Literal
+from fastapi import HTTPException, status
 from dinfostash.data.models import ResumeData
-from dinfostash.resume.constants import ResumeOutputType, ResumeTemplateEnum, TempResume
+from dinfostash.resume.constants import (
+    ResumeOutputType,
+    ResumeTemplateEnum,
+    TempResume,
+    FileResponseData,
+)
 from dinfostash.resume.resume_templates import ResumeTemplate
 from dinfostash.resume.utils import download_img
 
@@ -34,7 +41,13 @@ async def create_temp_resume_from_data(
 
     if img_url := data.personal_info.photo:
         data.personal_info.photo = f"{temp_dir}/photo.jpg"
-        download_img(img_url, data.personal_info.photo)
+        try:
+            download_img(img_url, data.personal_info.photo)
+        except ValueError as exp:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail="Invalid Image URL for profile pic",
+            )
 
     output_path = f"{temp_dir}/{data.personal_info.name.replace(' ', '_')}_{resume_template.value}"
 
@@ -51,3 +64,15 @@ async def create_temp_resume_from_data(
         latex_resume.generate_tex(str(output_path))
 
     return TempResume(path=f"{output_path}.{output_type.value}", temp_dir=temp_dir)
+
+
+def prepare_file_response(
+    file_path: str,
+    content_disposition: Literal["inline"] | Literal["attachment"],
+) -> FileResponseData:
+    mime_type, _ = mimetypes.guess_type(file_path)
+    media_type = mime_type or "application/octet-stream"
+    # setting Content-Disposition as attachment ensures it is downloaded as a file
+    headers = {"Content-Disposition": f'{content_disposition}; filename="{file_path}"'}
+
+    return FileResponseData(path=file_path, media_type=media_type, headers=headers)

@@ -4,7 +4,10 @@ from dinfostash.data.constants import ImagePath
 
 
 def download_img(image_url: str, image_name: str):
-    img_data = requests.get(image_url).content
+    try:
+        img_data = requests.get(image_url).content
+    except requests.exceptions.InvalidSchema as exp:
+        raise ValueError("Invalid url") from exp
     with open(image_name, "wb") as handler:
         handler.write(img_data)
 
