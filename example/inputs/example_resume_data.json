@@ -1,7 +1,7 @@
 {
 	"personal_info": {
 		"name": "John Doe",
-		"photo": "ResumeGenerator/example/inputs/john_doe.jpeg",
+		"photo": "https://www.shutterstock.com/image-vector/male-figure-man-boy-profile-260nw-1647374107.jpg",
 		"address": {
 			"line1": "123 Main St",
 			"line2": "",
