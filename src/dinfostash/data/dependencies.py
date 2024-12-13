@@ -4,9 +4,13 @@ from fastapi import Depends, HTTPException, status
 
 from dinfostash.auth.dependencies import get_current_user
 from dinfostash.data.models import ResumeData
-from dinfostash.data.services import (read_all_resume, read_resume,
-                                      remove_resume, save_resume,
-                                      update_resume)
+from dinfostash.data.services import (
+    read_all_resume,
+    read_resume,
+    remove_resume,
+    save_resume,
+    update_resume,
+)
 from dinfostash.user.models import User
 
 

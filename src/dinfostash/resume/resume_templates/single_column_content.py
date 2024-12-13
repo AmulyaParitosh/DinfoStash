@@ -1,10 +1,26 @@
 from typing import List
 
-from pylatex import (Command, Document, FlushLeft, FlushRight, HorizontalSpace,
-                     NoEscape, Section, Tabular, VerticalSpace)
+from pylatex import (
+    Command,
+    Document,
+    FlushLeft,
+    FlushRight,
+    HorizontalSpace,
+    NoEscape,
+    Section,
+    Tabular,
+    VerticalSpace,
+)
 
-from dinfostash.data.models import (Achievement, Education, Experience,
-                                    PersonalInfo, Project, ResumeData, Skill)
+from dinfostash.data.models import (
+    Achievement,
+    Education,
+    Experience,
+    PersonalInfo,
+    Project,
+    ResumeData,
+    Skill,
+)
 
 
 def add_educations(doc: Document, educations: List[Education]) -> None:

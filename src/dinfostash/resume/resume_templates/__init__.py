@@ -6,8 +6,10 @@ from pylatex import Document, NoEscape
 
 from dinfostash.data.models import ResumeData
 from dinfostash.resume.models import ResumeTemplateMetadata
-from dinfostash.resume.resume_templates import (compressed_single_column,
-                                                single_column_content)
+from dinfostash.resume.resume_templates import (
+    compressed_single_column,
+    single_column_content,
+)
 
 
 class ResumeTemplate:

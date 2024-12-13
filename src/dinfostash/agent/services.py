@@ -1,7 +1,6 @@
 import asyncio
 
-from dinfostash.agent.constants import (TailorSection, experience_agent,
-                                        project_agent)
+from dinfostash.agent.constants import TailorSection, experience_agent, project_agent
 from dinfostash.data.models import ResumeData
 
 

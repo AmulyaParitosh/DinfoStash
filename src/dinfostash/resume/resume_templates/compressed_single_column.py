@@ -1,15 +1,22 @@
 from typing import Literal, Union
 
-from pylatex import (Command, Document, NoEscape, Package, Section,
-                     VerticalSpace)
+from pylatex import Command, Document, NoEscape, Package, Section, VerticalSpace
 from pylatex.base_classes import LatexObject
 
 from dinfostash.data.constants import AnyUrlStr
-from dinfostash.data.models import (Achievement, Education, Experience,
-                                    Project, ResumeData, Skill)
-from dinfostash.resume.resume_templates.utils import (CustomCommand,
-                                                      CustomContextCommand,
-                                                      bold_percentage)
+from dinfostash.data.models import (
+    Achievement,
+    Education,
+    Experience,
+    Project,
+    ResumeData,
+    Skill,
+)
+from dinfostash.resume.resume_templates.utils import (
+    CustomCommand,
+    CustomContextCommand,
+    bold_percentage,
+)
 
 CommandArg = Union[str, LatexObject, AnyUrlStr, int, None]
 

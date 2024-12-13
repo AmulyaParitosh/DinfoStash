@@ -13,8 +13,8 @@ from dinfostash.resume.constants import (
     ResumeOutputType,
     ResumeTemplateEnum,
 )
-from dinfostash.resume.services import create_temp_resume_from_data
 from dinfostash.resume.utils import check_image_url
+from dinfostash.resume.services import create_temp_resume_from_data
 from dinfostash.user.models import User
 
 

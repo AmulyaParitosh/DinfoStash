@@ -2,8 +2,7 @@ import tempfile
 from pathlib import Path
 
 from dinfostash.data.models import ResumeData
-from dinfostash.resume.constants import (ResumeOutputType, ResumeTemplateEnum,
-                                         TempResume)
+from dinfostash.resume.constants import ResumeOutputType, ResumeTemplateEnum, TempResume
 from dinfostash.resume.resume_templates import ResumeTemplate
 from dinfostash.resume.utils import download_img
 

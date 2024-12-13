@@ -2,9 +2,13 @@ from typing import Annotated
 
 from fastapi import APIRouter, Depends, status
 
-from dinfostash.data.dependencies import (delete_resume, get_all_resume,
-                                          get_resume, patch_resume,
-                                          post_resume)
+from dinfostash.data.dependencies import (
+    delete_resume,
+    get_all_resume,
+    get_resume,
+    patch_resume,
+    post_resume,
+)
 from dinfostash.data.models import ResumeData
 
 router = APIRouter(
