@@ -13,7 +13,7 @@ router = APIRouter(
 )
 
 
-@router.get("/")
+@router.get("")
 async def all_resumes(
     resume_names: Annotated[list[str], Depends(get_all_resume)]
 ) -> list[str]:

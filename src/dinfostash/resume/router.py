@@ -21,7 +21,7 @@ async def list_templates() -> list[str]:
     return ResumeTemplate.available_templates()
 
 
-@router.get("/templates/{template_name}")
+@router.get("/templates")
 async def read_template_metadata(
     template_name: ResumeTemplateEnum,
 ) -> ResumeTemplateMetadata:
@@ -31,7 +31,7 @@ async def read_template_metadata(
         raise HTTPException(status_code=404, detail=str(err)) from err
 
 
-@router.get("/templates/{template_name}/preview")
+@router.get("/templates/preview")
 async def preview_template(
     template_file: Annotated[FileResponseData, Depends(template_preview)]
 ) -> FileResponse:
@@ -42,7 +42,7 @@ async def preview_template(
     )
 
 
-@router.get("/{template_name}")
+@router.get("")
 async def generate_resume_from_user_resume(
     resume_file: Annotated[FileResponseData, Depends(create_resume_from_saved_data)]
 ) -> FileResponse:
@@ -53,7 +53,7 @@ async def generate_resume_from_user_resume(
     )
 
 
-@router.post("/{template_name}")
+@router.post("")
 async def generate_resume_from_post_data(
     resume_file: Annotated[FileResponseData, Depends(create_resume_from_data)],
 ) -> FileResponse:
