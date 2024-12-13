@@ -19,14 +19,14 @@ from dinfostash.user.models import User
 
 
 async def template_preview(
-    template: ResumeTemplateEnum,  # type: ignore
+    template_name: ResumeTemplateEnum,  # type: ignore
     output_type: ResumeOutputType,
 ) -> FileResponseData:
 
     files = [
         f
         for f in os.listdir("example/outputs")
-        if f.endswith(output_type.value) and template.value in f
+        if f.endswith(output_type.value) and template_name.value in f
     ]
 
     first_file_path = f"example/outputs/{files[0]}"
