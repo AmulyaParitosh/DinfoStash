@@ -2,7 +2,7 @@ import argparse
 from argparse import Namespace
 from pathlib import Path
 
-from .resume import ResumeTemplateEnum, create_resume_from_file
+from dinfostash.resume import ResumeTemplateEnum, create_resume_from_file
 
 
 def list_templates() -> None:

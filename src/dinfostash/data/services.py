@@ -1,6 +1,6 @@
 from google.cloud.firestore_v1 import DocumentReference, DocumentSnapshot
 
-from .constants import users_collection
+from dinfostash.data.constants import users_collection
 
 
 def read_all_resume(user_id: str) -> list[str]:

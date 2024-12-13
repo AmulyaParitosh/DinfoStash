@@ -1,10 +1,11 @@
 import tempfile
 from pathlib import Path
 
-from ..data.models import ResumeData
-from .constants import ResumeOutputType, ResumeTemplateEnum, TempResume
-from .resume_templates import ResumeTemplate
-from .utils import download_img
+from dinfostash.data.models import ResumeData
+from dinfostash.resume.constants import (ResumeOutputType, ResumeTemplateEnum,
+                                         TempResume)
+from dinfostash.resume.resume_templates import ResumeTemplate
+from dinfostash.resume.utils import download_img
 
 
 def create_resume_from_file(

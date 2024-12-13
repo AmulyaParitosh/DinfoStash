@@ -4,9 +4,9 @@ from fastapi import Depends, HTTPException, status
 from firebase_admin import auth
 from firebase_admin.auth import UserRecord
 
-from ..firebase import firebase_app
-from .constants import oauth2_scheme
-from .models import AuthClaims
+from dinfostash.auth.constants import oauth2_scheme
+from dinfostash.auth.models import AuthClaims
+from dinfostash.firebase import firebase_app
 
 
 async def authenticate_with_token(

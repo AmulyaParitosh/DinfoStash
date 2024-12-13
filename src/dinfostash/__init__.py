@@ -1,1 +1,1 @@
-from .main import app
+from dinfostash.main import app

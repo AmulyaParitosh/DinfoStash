@@ -5,13 +5,14 @@ from typing import Annotated
 
 from fastapi import BackgroundTasks, Depends
 
-from ..auth.dependencies import get_current_user
-from ..data.dependencies import get_resume
-from ..data.models import ResumeData
-from ..user.models import User
-from .constants import FileResponseData, ResumeOutputType, ResumeTemplateEnum
-from .services import create_temp_resume_from_data
-from .utils import check_image_url
+from dinfostash.auth.dependencies import get_current_user
+from dinfostash.data.dependencies import get_resume
+from dinfostash.data.models import ResumeData
+from dinfostash.resume.constants import (FileResponseData, ResumeOutputType,
+                                         ResumeTemplateEnum)
+from dinfostash.resume.services import create_temp_resume_from_data
+from dinfostash.resume.utils import check_image_url
+from dinfostash.user.models import User
 
 
 async def template_preview(

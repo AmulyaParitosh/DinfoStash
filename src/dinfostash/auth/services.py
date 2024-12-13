@@ -2,9 +2,9 @@ import json
 
 import requests
 
-from ..config import SETTINGS
-from .models import VerifyPasswordResponse
-from .utils import raise_detailed_error
+from dinfostash.auth.models import VerifyPasswordResponse
+from dinfostash.auth.utils import raise_detailed_error
+from dinfostash.config import SETTINGS
 
 
 def sign_in_with_email_and_password(

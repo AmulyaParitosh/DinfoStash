@@ -3,9 +3,9 @@ from typing import Annotated
 from fastapi import Depends, UploadFile
 from firebase_admin import auth
 
-from ..auth.dependencies import get_admin, get_current_user
-from ..storage.services import store_profile_pic
-from .models import User, UserForm
+from dinfostash.auth.dependencies import get_admin, get_current_user
+from dinfostash.storage.services import store_profile_pic
+from dinfostash.user.models import User, UserForm
 
 
 def update_user_record(

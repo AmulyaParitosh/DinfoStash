@@ -4,9 +4,10 @@ from typing import Type
 
 from pylatex import Document, NoEscape
 
-from ...data.models import ResumeData
-from ..models import ResumeTemplateMetadata
-from . import compressed_single_column, single_column_content
+from dinfostash.data.models import ResumeData
+from dinfostash.resume.models import ResumeTemplateMetadata
+from dinfostash.resume.resume_templates import (compressed_single_column,
+                                                single_column_content)
 
 
 class ResumeTemplate:

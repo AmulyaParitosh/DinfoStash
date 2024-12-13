@@ -3,11 +3,12 @@ from typing import Annotated
 from fastapi import APIRouter, Depends, HTTPException
 from fastapi.responses import FileResponse
 
-from ..resume.resume_templates import ResumeTemplate
-from .constants import FileResponseData, ResumeTemplateEnum
-from .dependencies import (create_resume_from_data,
-                           create_resume_from_saved_data, template_preview)
-from .models import ResumeTemplateMetadata
+from dinfostash.resume.constants import FileResponseData, ResumeTemplateEnum
+from dinfostash.resume.dependencies import (create_resume_from_data,
+                                            create_resume_from_saved_data,
+                                            template_preview)
+from dinfostash.resume.models import ResumeTemplateMetadata
+from dinfostash.resume.resume_templates import ResumeTemplate
 
 router = APIRouter(
     prefix="/resumes",

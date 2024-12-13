@@ -4,10 +4,12 @@ from pylatex import (Command, Document, NoEscape, Package, Section,
                      VerticalSpace)
 from pylatex.base_classes import LatexObject
 
-from ...data.constants import AnyUrlStr
-from ...data.models import (Achievement, Education, Experience, Project,
-                            ResumeData, Skill)
-from .utils import CustomCommand, CustomContextCommand, bold_percentage
+from dinfostash.data.constants import AnyUrlStr
+from dinfostash.data.models import (Achievement, Education, Experience,
+                                    Project, ResumeData, Skill)
+from dinfostash.resume.resume_templates.utils import (CustomCommand,
+                                                      CustomContextCommand,
+                                                      bold_percentage)
 
 CommandArg = Union[str, LatexObject, AnyUrlStr, int, None]
 

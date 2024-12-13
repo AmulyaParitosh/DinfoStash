@@ -1,7 +1,7 @@
 from enum import Enum
 from typing import NamedTuple
 
-from .resume_templates import ResumeTemplate
+from dinfostash.resume.resume_templates import ResumeTemplate
 
 
 class ResumeOutputType(Enum):

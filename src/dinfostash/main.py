@@ -1,10 +1,10 @@
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 
-from .auth.routes import router as auth_router
-from .data.router import router as data_router
-from .resume.router import router as resume_router
-from .user.router import router as user_router
+from dinfostash.auth.routes import router as auth_router
+from dinfostash.data.router import router as data_router
+from dinfostash.resume.router import router as resume_router
+from dinfostash.user.router import router as user_router
 
 app = FastAPI()
 app.include_router(auth_router)

@@ -2,9 +2,9 @@ from typing import Annotated
 
 from fastapi import APIRouter, Depends, status
 
-from ..auth.dependencies import get_current_user
-from .dependencies import update_user_record
-from .models import User
+from dinfostash.auth.dependencies import get_current_user
+from dinfostash.user.dependencies import update_user_record
+from dinfostash.user.models import User
 
 router = APIRouter(
     prefix="/user", tags=["user"], responses={404: {"description": "Not found"}}

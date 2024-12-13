@@ -1,7 +1,7 @@
 import firebase_admin
 from firebase_admin import credentials, db, firestore, storage
 
-from .config import SETTINGS
+from dinfostash.config import SETTINGS
 
 cred = credentials.Certificate(SETTINGS.serviceAccountCertificatePath)
 firebase_app = firebase_admin.initialize_app(cred, SETTINGS.model_dump())

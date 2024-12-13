@@ -1,7 +1,7 @@
 from calendar import c
 from typing import BinaryIO
 
-from .constants import mime, storage_bucket
+from dinfostash.storage.constants import mime, storage_bucket
 
 
 def store_file(

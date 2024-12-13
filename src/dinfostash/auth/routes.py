@@ -8,8 +8,8 @@ from fastapi.security import OAuth2PasswordRequestForm
 from fastapi.templating import Jinja2Templates
 from firebase_admin import auth
 
-from ..firebase import firebase_app
-from .services import sign_in_with_email_and_password
+from dinfostash.auth.services import sign_in_with_email_and_password
+from dinfostash.firebase import firebase_app
 
 router = APIRouter()
 

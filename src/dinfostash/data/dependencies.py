@@ -2,11 +2,12 @@ from typing import Annotated
 
 from fastapi import Depends, HTTPException, status
 
-from ..auth.dependencies import get_current_user
-from ..user.models import User
-from .models import ResumeData
-from .services import (read_all_resume, read_resume, remove_resume,
-                       save_resume, update_resume)
+from dinfostash.auth.dependencies import get_current_user
+from dinfostash.data.models import ResumeData
+from dinfostash.data.services import (read_all_resume, read_resume,
+                                      remove_resume, save_resume,
+                                      update_resume)
+from dinfostash.user.models import User
 
 
 def get_all_resume(user: Annotated[User, Depends(get_current_user)]) -> list[str]:

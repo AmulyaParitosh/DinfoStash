@@ -1,6 +1,6 @@
 import requests
 
-from ..data.constants import ImagePath
+from dinfostash.data.constants import ImagePath
 
 
 def download_img(image_url: str, image_name: str):
