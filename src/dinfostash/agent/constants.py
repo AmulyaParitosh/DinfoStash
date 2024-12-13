@@ -41,7 +41,7 @@ experience_agent = Agent(
 
 
 def add_json_data(ctx: RunContext[TailorSection]) -> str:
-    return f"json data: [{"\n".join([str(item) for item in ctx.deps.data])}]"
+    return f"json data: [{'\n'.join([str(item) for item in ctx.deps.data])}]"
 
 
 project_agent.system_prompt(add_json_data)
