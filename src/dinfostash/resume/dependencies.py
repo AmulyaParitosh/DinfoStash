@@ -19,7 +19,7 @@ from dinfostash.user.models import User
 
 
 async def template_preview(
-    template: ResumeTemplateEnum,
+    template: ResumeTemplateEnum,  # type: ignore
     output_type: ResumeOutputType,
 ) -> FileResponseData:
 
@@ -42,7 +42,7 @@ async def template_preview(
 
 
 async def create_resume(
-    template: ResumeTemplateEnum,
+    template: ResumeTemplateEnum,  # type: ignore
     output_type: ResumeOutputType,
     background_tasks: BackgroundTasks,
     user: Optional[User] = Depends(get_optional_current_user),

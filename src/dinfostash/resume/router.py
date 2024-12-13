@@ -22,7 +22,7 @@ async def list_templates() -> list[str]:
 
 @router.get("/templates")
 async def read_template_metadata(
-    template_name: ResumeTemplateEnum,
+    template_name: ResumeTemplateEnum,  # type: ignore
 ) -> ResumeTemplateMetadata:
     try:
         return ResumeTemplate.get_template_metadata(template_name.value)

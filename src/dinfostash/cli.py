@@ -8,7 +8,7 @@ from dinfostash.resume import ResumeTemplateEnum, create_resume_from_file
 def list_templates() -> None:
     print("The available resume formats are:")
     for i, template in enumerate(
-        (template.value for template in ResumeTemplateEnum), start=1
+        (template.value for template in ResumeTemplateEnum), start=1  # type: ignore
     ):
         print(f"\t{i}. {template}")
 
@@ -54,8 +54,8 @@ def parse_args() -> Namespace:
     generate_parser.add_argument(
         "template",
         metavar="RESUME_TEMPLATE",
-        type=lambda x: ResumeTemplateEnum[x],
-        choices=list(ResumeTemplateEnum),
+        type=lambda x: ResumeTemplateEnum[x],  # type: ignore
+        choices=list(ResumeTemplateEnum),  # type: ignore
         help="Template of the output resume format.",
     )
 

@@ -8,7 +8,7 @@ from dinfostash.resume.utils import download_img
 
 
 def create_resume_from_file(
-    datafile_path: Path, outputdir_path: Path, resume_template: ResumeTemplateEnum
+    datafile_path: Path, outputdir_path: Path, resume_template: ResumeTemplateEnum  # type: ignore
 ):
 
     data_obj = ResumeData.read_from_file(datafile_path)
@@ -28,7 +28,7 @@ def create_resume_from_file(
 
 
 async def create_temp_resume_from_data(
-    data: ResumeData, resume_template: ResumeTemplateEnum, output_type: ResumeOutputType
+    data: ResumeData, resume_template: ResumeTemplateEnum, output_type: ResumeOutputType  # type: ignore
 ):
     temp_dir = tempfile.mkdtemp()
 
