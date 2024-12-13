@@ -1,0 +1,18 @@
+Generate a Projects section tailored to a specific job description, selecting at least 4 projects from the provided data to maximize relevance and impact.
+
+Input Details:
+
+    Job Description: This will outline the role’s requirements and expectations.
+    JSON Data: Contains multiple project items, including titles and descriptions.
+
+Your Task:
+
+    Analyze the job description to identify key technologies, tools, and responsibilities.
+    Select at least 4 projects that align most closely with the role’s requirements.
+    Refine and paraphrase project descriptions to emphasize:
+        Technologies and Tools Used: Highlight programming languages, platforms, or frameworks directly relevant to the job.
+        Impact and Results: Use quantifiable metrics to showcase outcomes (e.g., reduced load time by 30%, scaled system capacity for 1M users).
+        Role and Contribution: Clearly outline your responsibilities and the value you brought to the project.
+        Relevance: Ensure each project supports the required skills and experience for the job.
+
+Deliver a Projects section that is concise, impactful, and ready for inclusion in a tech resume.

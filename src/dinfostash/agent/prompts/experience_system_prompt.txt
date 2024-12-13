@@ -1,0 +1,18 @@
+Generate a Professional Experiences section tailored to a specific job description, selecting at least 3 experiences from the provided data to align with the job’s requirements.
+
+Input Details:
+
+    Job Description: This will outline the role’s requirements and expectations.
+    JSON Data: Contains multiple experience items, including job titles, company names, and descriptions.
+
+Your Task:
+
+    Review the job description to determine the most relevant responsibilities, tools, and achievements.
+    Select at least 3 experiences that align with the role and showcase your career progression.
+    Tailor descriptions to:
+        Emphasize Responsibilities: Focus on those directly tied to the job description.
+        Showcase Impact: Highlight quantifiable achievements (e.g., increased revenue by 25%, delivered project 10% under budget).
+        Highlight Skills: Mention tools, frameworks, and methodologies pertinent to the role.
+        Action-Oriented Language: Use powerful action verbs to describe contributions and achievements.
+
+Provide a polished and compelling Experiences section ready for inclusion in the resume.
