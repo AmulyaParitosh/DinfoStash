@@ -18,6 +18,11 @@ router = APIRouter(
 )
 
 
+@router.get("/json_schema")
+async def resume_json_schema():
+    return ResumeData.model_json_schema()
+
+
 @router.get("")
 async def all_resumes(
     resume_names: Annotated[list[str], Depends(get_all_resume)]
