@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <a href="APP_URL"><b>Open DinfoStash</b></a>
+  <a href="https://dinfostash-prod.web.app"><b>Open DinfoStash</b></a>
 </p>
 
 ---
@@ -43,13 +43,13 @@ application's source code is private.
 
 ## Screenshots
 
-<!-- TODO(TASK-101): take these from the deployed app with a fictional account, in light and dark. -->
+Taken with a fictional profile.
 
 | | Light | Dark |
 | --- | --- | --- |
-| Profile | ![Profile, light](screenshots/profile-light.png) | ![Profile, dark](screenshots/profile-dark.png) |
-| Resume studio | ![Studio, light](screenshots/studio-light.png) | ![Studio, dark](screenshots/studio-dark.png) |
-| Tailoring | ![Tailoring, light](screenshots/tailor-light.png) | ![Tailoring, dark](screenshots/tailor-dark.png) |
+| Profile | ![Profile, light](screenshots/profile-light.jpg) | ![Profile, dark](screenshots/profile-dark.jpg) |
+| Resume studio | ![Studio, light](screenshots/studio-light.jpg) | ![Studio, dark](screenshots/studio-dark.jpg) |
+| Tailoring | ![Tailoring, light](screenshots/tailor-light.jpg) | ![Tailoring, dark](screenshots/tailor-dark.jpg) |
 
 ## Templates
 
@@ -64,11 +64,22 @@ in [`examples/pdf`](examples/pdf).
 | --- | --- | --- |
 | [![SingleColumnPhotoCompressed](examples/images/SingleColumnPhotoCompressed.jpg)](examples/pdf/SingleColumnPhotoCompressed.pdf) | [![SingleColumnCompressedV2](examples/images/SingleColumnCompressedV2.jpg)](examples/pdf/SingleColumnCompressedV2.pdf) | [![Biodata](examples/images/Biodata.jpg)](examples/pdf/Biodata.pdf) |
 
-<!-- TODO(TASK-101): add a tailoring example (fictional job description, before and after). -->
+## Tailoring example
+
+The fictional profile above, tailored to this job description:
+
+> Senior Backend Engineer, Payments Platform. Build event-driven payment services in
+> Python and Kafka, own PostgreSQL data models, and run services on Kubernetes in AWS.
+> You care about idempotent APIs, reliability and mentoring engineers.
+
+DinfoStash found the six skills the job asks for, chose and rewrote the matching
+experience and project points, and fitted the result to one page. Every changed point is
+checked against the profile, so nothing is invented (truthfulness 100%); see the
+Tailoring screenshots above.
 
 ## Getting started
 
-1. Open [DinfoStash](APP_URL) and sign up with your email or with Google.
+1. Open [DinfoStash](https://dinfostash-prod.web.app) and sign up with your email or with Google.
 2. Import an existing resume, or fill in your profile by hand.
 3. Open **Resumes**, create a resume, pick a template and choose what to include.
 4. Download the PDF, or save it to your account to share later.
@@ -77,8 +88,8 @@ AI features (import reading, tailoring, plain-language edits) are turned on per 
 
 ## Privacy and terms
 
-- [Privacy policy](APP_URL/privacy)
-- [Terms of use](APP_URL/terms)
+- [Privacy policy](https://dinfostash-prod.web.app/privacy)
+- [Terms of use](https://dinfostash-prod.web.app/terms)
 
 ## Contact
 
