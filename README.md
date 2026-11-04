@@ -29,6 +29,9 @@ application's source code is private.
 - **Import an existing resume** (PDF, LaTeX, plain text or JSON) instead of typing it all
   again. You review what was read, with a quality score for the result, before anything is
   saved.
+- **Import projects from GitHub**: every public repository of a GitHub profile, or just one,
+  as projects you review before they are saved. With AI, each project's summary, points and
+  skills are written from its README and checked against it.
 - **Build several resumes** from the profile and keep them side by side, for example a
   backend version and a DevOps version.
 - **Format text** with bold, italic, underline and links. No LaTeX knowledge needed.
@@ -37,7 +40,8 @@ application's source code is private.
 - **Tailor a resume to a job description** with AI. The rewrite fits what the chosen
   template prints, and points that add numbers your profile does not have are put back.
 - **Edit your profile in plain language** with AI ("add my new job at…"). Changes are shown
-  for review before they are saved, and earlier versions can be restored.
+  for review before they are saved, and earlier versions can be restored. Paste a link to
+  a public page, such as an article about your work, and the AI reads it too.
 - **Save PDFs** to your account and share one by link.
 - **Export or delete your account** yourself, from the Account page.
 
