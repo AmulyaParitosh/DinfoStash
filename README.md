@@ -44,6 +44,9 @@ application's source code is private.
   a public page, such as an article about your work, and the AI reads it too.
 - **Save PDFs** to your account and share one by link.
 - **Export or delete your account** yourself, from the Account page.
+- **Use your profile elsewhere** through a read-only API: keep a portfolio site in sync,
+  build your PDF in CI, or give a tool your career history. Your profile is also available
+  as [JSON Resume](https://jsonresume.org/schema).
 
 ## Screenshots
 
@@ -90,10 +93,27 @@ Tailoring screenshots above.
 
 AI features (import reading, tailoring, plain-language edits) are turned on per account.
 
+## For developers
+
+Create a personal access token on your Account page, choosing what it may read, and call
+the API with it:
+
+```sh
+curl https://dinfostash-prod.web.app/api/public/v1/profile/json-resume \
+  -H "Authorization: Bearer $DINFOSTASH_TOKEN"
+```
+
+Tokens are read-only and can be revoked at any time. The
+[developer guide](https://dinfostash-prod.web.app/developers) has the quickstart, scopes,
+recipes and rate limits, and the
+[API reference](https://dinfostash-prod.web.app/developers/reference) lists every
+operation.
+
 ## Privacy and terms
 
 - [Privacy policy](https://dinfostash-prod.web.app/privacy)
-- [Terms of use](https://dinfostash-prod.web.app/terms)
+- [Terms of use](https://dinfostash-prod.web.app/terms), including the
+  [API terms](https://dinfostash-prod.web.app/terms#api)
 
 ## Contact
 
