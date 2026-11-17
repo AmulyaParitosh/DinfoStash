@@ -47,6 +47,9 @@ application's source code is private.
 - **Use your profile elsewhere** through a read-only API: keep a portfolio site in sync,
   build your PDF in CI, or give a tool your career history. Your profile is also available
   as [JSON Resume](https://jsonresume.org/schema).
+- **Let AI agents work on it**: connect Claude, ChatGPT, Cursor, VS Code, Codex or any other
+  MCP client, and it can read and keep up your profile, resumes and saved PDFs, and share
+  links to them. You approve each app in your browser and can end its access at any time.
 
 ## Screenshots
 
@@ -93,6 +96,33 @@ Tailoring screenshots above.
 
 AI features (import reading, tailoring, plain-language edits) are turned on per account.
 
+## Connect an AI agent (MCP)
+
+DinfoStash has an [MCP](https://modelcontextprotocol.io) server, so an AI agent can work
+with your profile and resumes for you:
+
+```
+https://dinfostash-prod.web.app/api/mcp
+```
+
+Add that address to your agent; the first time, it sends you to DinfoStash to sign in and
+approve its access. In Claude Code, for example:
+
+```sh
+claude mcp add --transport http dinfostash https://dinfostash-prod.web.app/api/mcp
+```
+
+then run `/mcp` to sign in. In claude.ai, Claude Desktop and ChatGPT, add the address as a
+custom connector; Cursor, VS Code and Codex take it in their MCP settings. The
+[developer guide](https://dinfostash-prod.web.app/developers#agents) has a copyable setup
+for each.
+
+- The agent changes your profile one item at a time and never touches what it does not
+  name. Every change keeps a snapshot you can restore.
+- Connected apps are listed on your Account page; revoking one ends its access at once.
+- There is no AI on the server side here: your agent does the writing, from your own
+  record.
+
 ## For developers
 
 Create a personal access token on your Account page, choosing what it may read, and call
@@ -103,7 +133,8 @@ curl https://dinfostash-prod.web.app/api/public/v1/profile/json-resume \
   -H "Authorization: Bearer $DINFOSTASH_TOKEN"
 ```
 
-Tokens are read-only and can be revoked at any time. The
+The API only reads, and tokens can be revoked at any time. (Tokens can also be given write
+access for an AI agent, through the MCP server above.) The
 [developer guide](https://dinfostash-prod.web.app/developers) has the quickstart, scopes,
 recipes and rate limits, and the
 [API reference](https://dinfostash-prod.web.app/developers/reference) lists every
